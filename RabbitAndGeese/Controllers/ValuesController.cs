@@ -6,11 +6,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace RabbitAndGeese.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]")] //can also be [Rout ("api/thing")]
     [ApiController]
     public class ValuesController : ControllerBase
     {
-        // GET api/values
+
+        // GET api/values //would be Get api/thing
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
@@ -18,16 +19,20 @@ namespace RabbitAndGeese.Controllers
         }
 
         // GET api/values/5
-        [HttpGet("{id}")]
+        //Action result only will return a string
+        [HttpGet("stuff/{id}")]
         public ActionResult<string> Get(int id)
         {
             return "value";
         }
 
         // POST api/values
+        //can return multiple things
+        //can use AddValue instead of Post in th method
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IActionResult Post([FromBody] string value)
         {
+            return Ok();
         }
 
         // PUT api/values/5
