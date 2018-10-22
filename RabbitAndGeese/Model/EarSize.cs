@@ -1,7 +1,7 @@
 ﻿
 namespace RabbitAndGeese.Model
 {
-    public enum EarSize
+    public enum Size
     {
         Small,
         Medium,
